@@ -1,0 +1,29 @@
+#!/bin/bash
+bin_dir=$(echo "$0")
+root_dir=$(dirname $bin_dir)
+date_curr=$(date +"%Y%m%d")
+date_cur_format="$(date +"%Y-%m-%d")"
+root_curr="$(dirname $root_dir)"
+#search="$dir_curr/$date_curr.md"
+title=""
+
+md_template="$root_curr/notes/notes.md"
+# create new note
+function createNote {
+  read -p "Title: " title
+  
+  sed -e "s/{title}/$title/g" \
+  -e "s/{date}/$date_cur_format/g" \
+  $md_template > notes/$date_curr-$title.md
+}
+
+# TODO: set option "-n"
+# 
+if [ -e "$date_curr.md" ]
+  then 
+    echo "Error. File already exists!"
+else 
+  createNote
+  echo "New Note added: $title"
+fi
+
