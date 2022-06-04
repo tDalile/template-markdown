@@ -10,12 +10,11 @@ title=""
 md_template="$root_curr/etc/notes.md"
 
 read -p "Title: " title
-echo $PWD
 # create new note
 function createNote {
   
-  sed -e "s/{title}/$title/g" \
-  -e "s/{date}/$date_cur_format/g" \
+  sed -e "s/{ title }/$title/g" \
+  -e "s/{ date }/$date_cur_format/g" \
   $md_template > $root_curr/notes/$date_curr-$title.md
 }
 
