@@ -1,8 +1,8 @@
 ---
 title: { title }
 date: { date }
-bibliography: bibliography.bib
-csl: ieee.csl
+bibliography: etc/bibliography.bib
+csl: etc/ieee.csl
 link-citations: yes
 tags:
 ---
